@@ -22,15 +22,15 @@ const getDatabaseCart = () => {
     return JSON.parse(data);
 }
 
-const addToDatabaseCart = (key, count) => {
+const addToDatabaseCart = (Key, count) => {
     const currentCart = getDatabaseCart();
-    currentCart[key] = count;
+    currentCart[Key] = count;
     localStorage.setItem(getDataKey(), JSON.stringify(currentCart));
 }
 
-const removeFromDatabaseCart = key => {
+const removeFromDatabaseCart = Key => {
     const currentCart = getDatabaseCart();
-    delete currentCart[key];
+    delete currentCart[Key];
     localStorage.setItem(getDataKey(), JSON.stringify(currentCart));
 }
 
@@ -46,11 +46,11 @@ export { addToDatabaseCart, getDatabaseCart, removeFromDatabaseCart, processOrde
 const localStorage = window.localStorage || (() => {
   let store = {}
   return {
-    getItem(key) {
-      return store[key]
+    getItem(Key) {
+      return store[Key]
     },
-    setItem(key, value) {
-      store[key] = value.toString()
+    setItem(Key, value) {
+      store[Key] = value.toString()
     },
     clear() {
       store = {}
@@ -61,11 +61,11 @@ const localStorage = window.localStorage || (() => {
 const sessionStorage = window.sessionStorage || (() => {
   let store = {}
   return {
-    getItem(key) {
-      return store[key]
+    getItem(Key) {
+      return store[Key]
     },
-    setItem(key, value) {
-      store[key] = value.toString()
+    setItem(Key, value) {
+      store[Key] = value.toString()
     },
     clear() {
       store = {}
